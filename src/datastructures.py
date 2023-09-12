@@ -12,25 +12,50 @@ class FamilyStructure:
     def __init__(self, last_name):
         self.last_name = last_name
 
-        # example list of members
+        # example list of members this is the array we are updating/deleting
         self._members = []
 
     # read-only: Use this method to generate random members ID's when adding members into the list
     def _generateId(self):
         return randint(0, 99999999)
 
-    def add_member(self, member):
-        # fill this method and update the return
-        pass
+        # this method is done, it returns a list with all the family members
+    def get_all_members(self):
+        return self._members
 
-    def delete_member(self, id):
-        # fill this method and update the return
-        pass
 
     def get_member(self, id):
         # fill this method and update the return
+        # filter_by or for loop to retrieve specific family member id to display
+
+        for member in self._members:
+            if member['id'] == id:
+                return member
+            # works without return None but return null with it 
+            # return None               
+
+
+    def add_member(self, member):
+        # fill this method and update the return
+        # push => append
+        id = self._generateId()
+        member['id'] = id
+        self._members.append(member) 
+        return None  
+
+  
+ 
+
+
+    def delete_member(self, id):
+        # fill this method and update the return
+        # need a for loop to find a specific family member id to remove
         pass
 
-    # this method is done, it returns a list with all the family members
-    def get_all_members(self):
-        return self._members
+        for member in self._members:
+            if member['id'] == int(id):
+                _member.remove(id)
+
+
+
+
